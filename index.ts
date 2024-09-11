@@ -1,22 +1,42 @@
-let username: string = "bankuti.laszlo"
-let age: number = 18;
-let driverLicense: boolean = false;
+const apiUrl = "https://pokeapi.co/api/v2/pokemon/pikachu";
 
-interface IDriver {
+type Ability = {
     name: string,
-    age: number,
-    validDriverLicense: boolean,
-    blackDots: number,
-    countryCode: 'H' | 'GB' | "CH" | "I"
+    url: string
 }
-interface IDriver {
-    bloodAlcohol: number
+
+type AbilitiesEl = {
+    ability: Ability,
+    is_hidden: boolean,
+    slot: number
 }
-let tomi: IDriver = {
-    name: "Tamás",
-    age: 18,
-    validDriverLicense: false,
-    blackDots: 5,
-    countryCode: 'H',
-    bloodAlcohol: 0.31
+
+type Stat = {
+    name: string,
+    url: string
 }
+
+type StatsEl = {
+    base_stat: number,
+    effort: number,
+    stat: Stat
+}
+
+type Pokemon = {
+    id: number,
+    abilities: AbilitiesEl[], 
+    stats: StatsEl[],
+    base_experience: number,
+    height: number,
+    location_area_encounters: string, 
+    is_default: boolean
+}
+
+fetch(apiUrl)
+    .then(res => res.json())
+    .then((data: Pokemon) => {
+        console.log(`${data.id}. Magassága: ${data.height}`);
+
+        data.abilities.forEach(item => console.log(item.ability.name));
+        data.stats.forEach(item => console.log(`${item.stat.name}: ${item.base_stat}`));
+    });
