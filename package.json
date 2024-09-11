@@ -1,15 +1,30 @@
 {
+<<<<<<< HEAD
   "name": "rpg",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+  "name": "typescript-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node index.js"
+>>>>>>> dbf9e94eac636376b0d4c79bb8ad44ba1693b936
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "description": "",
   "devDependencies": {
     "typescript": "^5.6.2"
+=======
+  "dependencies": {
+    "typescript": "^5.5.4"
+>>>>>>> dbf9e94eac636376b0d4c79bb8ad44ba1693b936
   }
 }
